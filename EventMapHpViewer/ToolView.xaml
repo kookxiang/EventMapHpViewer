@@ -1,15 +1,15 @@
 ﻿<UserControl x:Class="EventMapHpViewer.ToolView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:EventMapHpViewer.ViewModels"
              xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="500"
              d:DataContext="{d:DesignData /SampleData/ToolViewModelSampleData.xaml}">
-    
+
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,12 +19,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MetroRadiance;component/Themes/Accents/Purple.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/Desktop.Metro;component/Styles/Controls.xaml" />
-                
+
                 <ResourceDictionary Source="pack://application:,,,/KanColleViewer;component/Styles/Colors.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/KanColleViewer;component/Styles/Controls.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/KanColleViewer;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
             <l:VisibilityAndBooleanConverter x:Key="TrueToVisibleConverter"
                                              ConvertWhenTrue="Visible"
                                              ConvertWhenFalse="Collapsed"/>
@@ -33,7 +33,7 @@
                                              ConvertWhenFalse="Visible"/>
         </ResourceDictionary>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -45,7 +45,7 @@
         <Border Grid.Row="0"
                 BorderThickness="0,0,0,1"
                 BorderBrush="{DynamicResource ActiveBorderBrushKey}">
-            <TextBlock Text="攻略中マップ"
+            <TextBlock Text="攻略中的地图"
                        Style="{DynamicResource HeaderTextStyleKey}"
                        Margin="10,0,10,10"/>
         </Border>
@@ -54,13 +54,13 @@
         <Border Grid.Row="1"
                 BorderThickness="0,0,0,1"
                 BorderBrush="{DynamicResource ActiveBorderBrushKey}">
-            <TextBlock Text="No Map"
+            <TextBlock Text="未知地图"
                        VerticalAlignment="Center"
                        Visibility="{Binding IsNoMap, Converter={StaticResource TrueToVisibleConverter}}"
                        Margin="20"
                        d:IsHidden="True"/>
         </Border>
-        
+
         <Grid Grid.Row="1"
               Grid.IsSharedSizeScope="True">
             <Grid.RowDefinitions>
@@ -91,7 +91,7 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                    
+
                                 <TextBlock Grid.Column="0"
                                            Grid.RowSpan="2"
                                            HorizontalAlignment="Right"
@@ -157,7 +157,7 @@
                                          Style="{DynamicResource EmphaticTextElementStyleKey}"/>
                                     <Run Text="回"/>
                                 </TextBlock>
-                                
+
                                 <TextBlock Grid.Column="3"
                                            Grid.Row="0"
                                            Grid.RowSpan="2"
@@ -165,7 +165,7 @@
                                            VerticalAlignment="Center"
                                            Margin="3,0,7,0"
                                            Visibility="{Binding IsSupported, Converter={StaticResource FalseToVisibleConverter}}"
-                                           Text="未対応"/>
+                                           Text="尚未支持的地图"/>
 
 
                                 <Grid x:Name="UnselectedIndicator"
@@ -176,7 +176,7 @@
                                       Visibility="{Binding IsRankSelected, Converter={StaticResource FalseToVisibleConverter}}">
                                     <Border Background="{DynamicResource ThemeBrushKey}"
                                             Margin="0" />
-                                    <TextBlock Text="難易度を選択してください"
+                                    <TextBlock Text="请选择一种难易度"
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Center" />
                                 </Grid>
@@ -190,10 +190,10 @@
                    Style="{DynamicResource DefaultTextStyleKey}"
                    TextWrapping="WrapWithOverflow"
                    Margin="5,15">
-            ※出撃(海域選択)画面を開いた際に更新されます。<LineBreak/>
-            ※イベントマップのHPは、ボス旗艦のHPを削ると連動して減少します。<LineBreak/>
+            ※选择指定的海域出击后可以看到数据。<LineBreak/>
+            ※活动地图的HP，将随着敌军旗舰船HP的减少而减少。<LineBreak/>
             <LineBreak/>
-            ■対応イベント: 2014夏～2015春
+            ■对应活动数据: 2014夏～2015春
         </TextBlock>
     </Grid>
 </UserControl>
