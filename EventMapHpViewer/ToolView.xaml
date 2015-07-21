@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:EventMapHpViewer.ViewModels"
              xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+             MaxWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type ContentControl}}, Mode=OneWay}"
              Background="{DynamicResource ThemeBrushKey}"
              Foreground="{DynamicResource ActiveForegroundBrushKey}"
              mc:Ignorable="d" 
@@ -62,7 +63,7 @@
             <Border Grid.Row="0"
                     BorderThickness="0,0,0,1"
                     BorderBrush="{DynamicResource ActiveBorderBrushKey}">
-                <TextBlock Text="攻略中マップ"
+                <TextBlock Text="攻略中的地图"
                            Style="{DynamicResource HeaderTextStyleKey}"
                            Margin="10,0,10,10"/>
             </Border>
@@ -71,7 +72,7 @@
             <Border Grid.Row="1"
                     BorderThickness="0,0,0,1"
                     BorderBrush="{DynamicResource ActiveBorderBrushKey}">
-                <TextBlock Text="No Map"
+                <TextBlock Text="未知地图"
                            VerticalAlignment="Center"
                            Visibility="{Binding IsNoMap, Converter={StaticResource TrueToVisibleConverter}}"
                            Margin="20"
@@ -182,7 +183,7 @@
                                                VerticalAlignment="Center"
                                                Margin="3,0,7,0"
                                                Visibility="{Binding IsSupported, Converter={StaticResource FalseToVisibleConverter}}"
-                                               Text="未対応"/>
+                                               Text="尚未支持的地图"/>
 
 
                                     <Grid x:Name="UnselectedIndicator"
@@ -193,7 +194,7 @@
                                           Visibility="{Binding IsRankSelected, Converter={StaticResource FalseToVisibleConverter}}">
                                         <Border Background="{DynamicResource ThemeBrushKey}"
                                                 Margin="0" />
-                                        <TextBlock Text="難易度を選択してください"
+                                        <TextBlock Text="请选择一种难易度"
                                                    VerticalAlignment="Center"
                                                    HorizontalAlignment="Center" />
                                     </Grid>
@@ -207,10 +208,10 @@
                        Style="{DynamicResource DefaultTextStyleKey}"
                        TextWrapping="WrapWithOverflow"
                        Margin="5,15">
-                ※出撃(海域選択)画面を開いた際に更新されます。<LineBreak/>
-                ※イベントマップのHPは、ボス旗艦のHPを削ると連動して減少します。<LineBreak/>
+                ※选择指定的海域出击后可以看到数据。<LineBreak/>
+                ※活动地图的HP，将随着敌军旗舰船HP的减少而减少。<LineBreak/>
                 <LineBreak/>
-                ■対応イベント: 2014夏～2015春
+                ■对应活动数据: 2014夏～2015春
             </TextBlock>
         </Grid>
         
